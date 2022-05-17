@@ -12,6 +12,10 @@ inputs:
     description: "Pattern used to limit paths in the `git status` command."
     required: false
     default: ""
+  working-directory:
+    description: "The directory where the Git repository is located, used to support checking out to custom locations or checking out multiple repos in parallel"
+    required: false
+    default: ""
 outputs:
   changed:
     description: "Whether or not there are uncommitted changes in the pathspec"
@@ -21,3 +25,4 @@ runs:
   args: 
     - ${{ inputs.status-args }}
     - ${{ inputs.pathspec }}
+    - ${{ inputs.working-directory }}
